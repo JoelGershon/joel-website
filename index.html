@@ -36,11 +36,12 @@
     }
     .script-code {
       background-color: #111;
-      color: #0f0;
+      color: #00ff88;
       padding: 10px;
       font-family: monospace;
       overflow-x: auto;
       white-space: nowrap;
+      border-radius: 5px;
     }
     .copy-btn {
       position: absolute;
@@ -86,14 +87,14 @@
   <!-- Section 2: Blox Fruits -->
   <div class="section">
     <h2>🍍 Blox Fruits</h2>
-    <div class="empty-box">No scripts added yet. Waiting on Joel 😎</div>
+    <div class="empty-box">No scripts added yet.</div>
   </div>
 
   <script>
     function copyScript(id) {
       const code = document.getElementById(id).innerText;
       navigator.clipboard.writeText(code).then(() => {
-        alert("✅ Script copied!");
+        alert("✅ Script copied to clipboard!");
       });
     }
   </script>
