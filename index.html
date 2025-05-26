@@ -43,6 +43,11 @@
       bottom: 0;
       left: 0;
       padding-top: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar.hidden {
+      transform: translateX(-100%);
     }
 
     .sidebar button {
@@ -108,13 +113,23 @@
       border-radius: 6px;
       text-decoration: none;
     }
+
+    @media screen and (max-width: 768px) {
+      .main-content {
+        margin-left: 0;
+      }
+      .sidebar {
+        top: 60px;
+        z-index: 999;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div class="burger">☰</div>
+    <div class="burger" onclick="toggleSidebar()">☰</div>
     <div class="title">Luffy Cheats</div>
     <div class="discord-icon">
       <a href="https://discord.gg/bC9eHm5yEz" target="_blank">
@@ -124,7 +139,7 @@
   </header>
 
   <!-- Sidebar -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <button class="active" onclick="showTab('deadrails', this)">🛤️ Dead Rails</button>
     <button onclick="showTab('bloxfruits', this)">🍍 Blox Fruits</button>
     <button onclick="showTab('executer', this)">🧠 Executer</button>
@@ -157,8 +172,8 @@
         <div class="script-title">🔴 Redz Hub</div>
         <div class="script-desc">Best for auto farming and works well on low-end devices</div>
 <pre><code>local Settings = { 
-  JoinTeam = "Pirates"; -- Pirates/Marines
-  Translator = true; -- true/false
+  JoinTeam = "Pirates";
+  Translator = true;
 }
 loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)</code></pre>
       </div>
@@ -204,6 +219,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/L
     <!-- Executer Tab -->
     <div id="executer" class="tab-content">
       <h2>🧠 Ronix Executer</h2>
+      <p><strong>Ronix is the best undetected executer</strong></p>
       <p>Download Ronix Executer from the links below:</p>
       <div class="download-buttons">
         <a href="https://www.mediafire.com/file/998l5nycpijgbhm/Ronix+v2.671.818.apk/file" target="_blank">Download from MediaFire</a>
@@ -213,8 +229,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/L
     </div>
   </div>
 
-  <!-- Script for Tab Switching -->
+  <!-- JavaScript -->
   <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('hidden');
+    }
+
     function showTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
