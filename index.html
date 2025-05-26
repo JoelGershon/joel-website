@@ -12,7 +12,6 @@
       color: #fff;
     }
 
-    /* Hamburger Icon */
     .menu-icon {
       font-size: 28px;
       cursor: pointer;
@@ -26,7 +25,6 @@
       border-bottom-right-radius: 8px;
     }
 
-    /* Sidebar */
     .sidebar {
       height: 100%;
       width: 0;
@@ -80,21 +78,31 @@
     .download-buttons a:hover {
       background-color: #0b5ed7;
     }
+
+    .script-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #4de3ff;
+    }
+
+    .script-desc {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
 
-  <!-- ☰ Hamburger Icon -->
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <!-- Sidebar Menu -->
   <div id="sidebar" class="sidebar">
     <a href="#deadrails">Dead Rails</a>
     <a href="#bloxfruits">Blox Fruits</a>
     <a href="#executer">Executer</a>
   </div>
 
-  <!-- Sections -->
   <section id="deadrails">
     <h2>🚂 Dead Rails Scripts</h2>
     <div class="script-box">
@@ -105,10 +113,59 @@
 
   <section id="bloxfruits">
     <h2>🍍 Blox Fruits Scripts</h2>
+
     <div class="script-box">
-      -- Paste your Blox Fruits script here
-      print("Blox Fruits script activated")
+      <div class="script-title">🔴 Redz Hub</div>
+      <div class="script-desc">Best for auto farming and works well on low-end devices</div>
+<pre><code>local Settings = { 
+  JoinTeam = "Pirates"; -- Pirates/Marines
+  Translator = true; -- true/false
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
+</code></pre>
     </div>
+
+    <div class="script-box">
+      <div class="script-title">🔵 W Azure</div>
+      <div class="script-desc">Best stack farmer and keyless</div>
+<pre><code>getgenv().Team = "Marines"
+getgenv().AutoLoad = false --Will Load Script On Server Hop
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+</code></pre>
+    </div>
+
+    <div class="script-box">
+      <div class="script-title">🟣 Hoho Hub</div>
+      <div class="script-desc">It has everything, but requires key</div>
+<pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+</code></pre>
+    </div>
+
+    <div class="script-box">
+      <div class="script-title">🟢 Auto Fruit Hopper</div>
+      <div class="script-desc">You can get good fruit fast</div>
+<pre><code>_G.HoHoCustomConfig = {
+    SelectTeam = "Marine",
+    BypassTeleport = false,
+    PortalTeleport = true,
+    LeavePortalUlti = true,
+    FPSBoost = false,
+    WhiteScreen = false,
+    AutoAlly = true,
+    NoClip = true,
+    NoStun = true,
+    AutoCollectFruit = true,
+    AutoRandomFruit = true,
+    CheckFruitStoreable = true,
+    Webhook = "",
+    SendWebhookNewItem = true,
+    FarmWithHop = true,
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+</code></pre>
+    </div>
+
   </section>
 
   <section id="executer">
@@ -121,7 +178,6 @@
     <p>Need help getting the key? Watch our tutorial video (coming soon).</p>
   </section>
 
-  <!-- JS for sidebar toggle -->
   <script>
     function toggleMenu() {
       const sidebar = document.getElementById("sidebar");
