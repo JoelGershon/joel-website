@@ -4,244 +4,243 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Luffy Cheats</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
+    * {
+      font-family: 'Roboto', sans-serif;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      padding: 60px 20px 20px;
+      transition: all 0.3s ease;
+    }
     header {
-      background-color: #1a1a1a;
-      padding: 10px 20px;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 50px;
+      background: #1e1e1e;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
-      z-index: 100;
+      padding: 0 15px;
+      z-index: 999;
     }
-
-    .menu-icon, .discord-icon {
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #fff;
+    }
+    .burger {
       cursor: pointer;
       font-size: 24px;
-      color: #00ffcc;
+      color: #fff;
     }
-
-    .title {
-      font-size: 26px;
-      font-weight: bold;
-      color: #00ffcc;
+    .discord {
+      color: #7289DA;
+      font-size: 24px;
+      text-decoration: none;
     }
-
     .sidebar {
       position: fixed;
-      left: -220px;
-      top: 0;
-      height: 100%;
+      top: 50px;
+      left: -250px;
       width: 200px;
-      background-color: #111;
-      padding-top: 60px;
-      display: flex;
-      flex-direction: column;
+      background: #1f1f1f;
+      height: 100%;
+      padding: 10px;
       transition: left 0.3s ease;
-      z-index: 99;
+      z-index: 998;
     }
-
     .sidebar.open {
       left: 0;
     }
-
-    .sidebar a {
+    .sidebar button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      background: #2e2e2e;
       color: #fff;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-bottom: 1px solid #222;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s ease;
     }
-
-    .sidebar a:hover {
-      background-color: #222;
+    .sidebar button:hover {
+      background: #444;
     }
-
-    .tab-content {
-      padding: 20px;
+    .tab {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    .tab.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .script-box {
+      background: #222;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .copy-btn {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background: #7289DA;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .copy-btn:hover {
+      background: #5a6ea3;
+    }
+    .sub-tabs {
+      margin: 15px 0;
+    }
+    .sub-tabs button {
+      margin-right: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .sub-tab-content {
       display: none;
     }
-
-    .active {
+    .sub-tab-content.active {
       display: block;
-    }
-
-    .executor {
-      background-color: #1c1c1c;
-      border-left: 5px solid #00ffcc;
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .executor h4 {
-      margin: 0 0 5px 0;
-      color: #00ffcc;
-    }
-
-    .executor p {
-      margin: 0 0 10px 0;
-    }
-
-    .executor code {
-      display: block;
-      background-color: #222;
-      padding: 10px;
-      border-radius: 5px;
-      white-space: pre-wrap;
-      color: #00ffcc;
-    }
-
-    button {
-      padding: 6px 12px;
-      margin: 5px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background-color: #00ffcc;
-      color: black;
-      font-weight: bold;
-    }
-
-    button:hover {
-      background-color: #00ddaa;
-    }
-
-    .tab-buttons {
-      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <span class="menu-icon" onclick="toggleSidebar()">☰</span>
-    <span class="title">Luffy Cheats</span>
-    <a class="discord-icon" href="https://discord.gg/bC9eHm5yEz" target="_blank">💬</a>
-  </header>
+<header>
+  <div class="burger" onclick="toggleSidebar()">☰</div>
+  <div class="logo">Luffy Cheats</div>
+  <a class="discord" href="https://discord.gg/bC9eHm5yEz" target="_blank">💬</a>
+</header>
 
-  <div class="sidebar" id="sidebar">
-    <a href="#" onclick="showTab('deadrails')">Dead Rails</a>
-    <a href="#" onclick="showTab('bloxfruits')">Blox Fruits</a>
-    <a href="#" onclick="showTab('executer')">Executer</a>
+<div class="sidebar" id="sidebar">
+  <button onclick="switchTab('deadrails')">Dead Rails</button>
+  <button onclick="switchTab('bloxfruits')">Blox Fruits</button>
+  <button onclick="switchTab('executer')">Executer</button>
+</div>
+
+<div id="deadrails" class="tab active">
+  <h2>Dead Rails Scripts</h2>
+  <div class="script-box">
+    <h3>Instant Killer</h3>
+    <p>Good with Vampire class. Kill anything with weapons (not guns).</p>
+    <pre id="code1">loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</pre>
+    <button class="copy-btn" onclick="copyScript('code1')">Copy</button>
   </div>
-
-  <div id="deadrails" class="tab-content active">
-    <h2>Dead Rails Scripts</h2>
-
-    <div class="executor">
-      <h4>Instant Killer</h4>
-      <p>Good with Vampire class — can kill anything with weapons (not guns)</p>
-      <code>loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</code>
-    </div>
-
-    <div class="executor">
-      <h4>Auto Collect Bonds</h4>
-      <p>Collect bonds fast and it's keyless</p>
-      <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()</code>
-    </div>
+  <div class="script-box">
+    <h3>Auto Collect Bonds</h3>
+    <p>Fast bond collection. Keyless.</p>
+    <pre id="code2">loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()</pre>
+    <button class="copy-btn" onclick="copyScript('code2')">Copy</button>
   </div>
+</div>
 
-  <div id="bloxfruits" class="tab-content">
-    <h2>Blox Fruits Scripts</h2>
-
-    <div class="executor">
-      <h4>Redz Hub</h4>
-      <p>Best for auto farming, good on low-end devices</p>
-      <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))({JoinTeam = "Pirates", Translator = true})</code>
-    </div>
-
-    <div class="executor">
-      <h4>W Azure</h4>
-      <p>Best stack farmer and keyless</p>
-      <code>getgenv().Team = "Marines"
+<div id="bloxfruits" class="tab">
+  <h2>Blox Fruits Scripts</h2>
+  <div class="script-box">
+    <h3>Redz Hub</h3>
+    <p>Best for autofarming, good for low-end devices.</p>
+    <pre id="code3">local Settings = {
+  JoinTeam = "Pirates";
+  Translator = true;
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)</pre>
+    <button class="copy-btn" onclick="copyScript('code3')">Copy</button>
+  </div>
+  <div class="script-box">
+    <h3>W Azure</h3>
+    <p>Best stack farmer, keyless.</p>
+    <pre id="code4">getgenv().Team = "Marines"
 getgenv().AutoLoad = false
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()</code>
-    </div>
-
-    <div class="executor">
-      <h4>Hoho Hub</h4>
-      <p>Has everything but requires key</p>
-      <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</code>
-    </div>
-
-    <div class="executor">
-      <h4>Auto Fruit Hopper</h4>
-      <p>Get good fruits fast</p>
-      <code>_G.HoHoCustomConfig = {
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()</pre>
+    <button class="copy-btn" onclick="copyScript('code4')">Copy</button>
+  </div>
+  <div class="script-box">
+    <h3>HoHo Hub</h3>
+    <p>Has everything, but requires key.</p>
+    <pre id="code5">loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
+    <button class="copy-btn" onclick="copyScript('code5')">Copy</button>
+  </div>
+  <div class="script-box">
+    <h3>Auto Fruit Hopper</h3>
+    <p>Farm fruits fast. Webhook features included.</p>
+    <pre id="code6">_G.HoHoCustomConfig = {
   SelectTeam = "Marine",
+  BypassTeleport = false,
   PortalTeleport = true,
   LeavePortalUlti = true,
+  FPSBoost = false,
+  WhiteScreen = false,
+  AutoAlly = true,
+  NoClip = true,
+  NoStun = true,
   AutoCollectFruit = true,
-  AutoRandomFruit = true
+  AutoRandomFruit = true,
+  CheckFruitStoreable = true,
+  Webhook = "",
+  SendWebhookNewItem = true,
+  FarmWithHop = true,
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</code>
-    </div>
+loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
+    <button class="copy-btn" onclick="copyScript('code6')">Copy</button>
   </div>
+</div>
 
-  <div id="executer" class="tab-content">
-    <h2>Executer</h2>
-
-    <div class="tab-buttons">
-      <button onclick="showExecuterTab('computer')">💻 Computer</button>
-      <button onclick="showExecuterTab('mobile')">📱 Mobile</button>
-    </div>
-
-    <div id="executer-computer" class="executer-subtab">
-      <div class="executor">
-        <h4>Ronix</h4>
-        <p>Best undetected level 8 executor</p>
-        <a href="https://www.mediafire.com/file/998l5nycpijgbhm/Ronix+v2.671.818.apk/file" target="_blank">📥 MediaFire</a><br>
-        <a href="https://drive.google.com/file/d/1D_DNg3lyPrQZiy7dt6Xob6U1n9llPrgD/view?usp=drive_link" target="_blank">📁 Google Drive</a>
-      </div>
-    </div>
-
-    <div id="executer-mobile" class="executer-subtab" style="display: none;">
-      <div class="executor">
-        <h4>Arceus X</h4>
-        <p>Popular, high script support</p>
-        <a href="#">📥 MediaFire</a><br>
-        <a href="#">📁 Google Drive</a>
-      </div>
-    </div>
+<div id="executer" class="tab">
+  <h2>Ronix Executor</h2>
+  <div class="sub-tabs">
+    <button onclick="switchSubTab('mobile')">Mobile</button>
+    <button onclick="switchSubTab('computer')">Computer</button>
   </div>
+  <div id="mobile" class="sub-tab-content active">
+    <p><strong>Ronix v2.671.818 (Best Undetected)</strong></p>
+    <a href="https://www.mediafire.com/file/998l5nycpijgbhm/Ronix+v2.671.818.apk/file" target="_blank">Download (MediaFire)</a><br>
+    <a href="https://drive.google.com/file/d/1D_DNg3lyPrQZiy7dt6Xob6U1n9llPrgD/view?usp=drive_link" target="_blank">Download (Google Drive)</a>
+  </div>
+  <div id="computer" class="sub-tab-content">
+    <p>Executors for PC will be added soon.</p>
+  </div>
+</div>
 
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      sidebar.classList.toggle("open");
-    }
+<script>
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+  }
 
-    function showTab(tabId) {
-      const tabs = document.getElementsByClassName("tab-content");
-      for (let i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove("active");
-      }
-      document.getElementById(tabId).classList.add("active");
+  function switchTab(tabId) {
+    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+    document.getElementById(tabId).classList.add("active");
+    document.getElementById("sidebar").classList.remove("open");
+  }
 
-      // Close sidebar after selecting
-      document.getElementById("sidebar").classList.remove("open");
-    }
+  function copyScript(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+  }
 
-    function showExecuterTab(type) {
-      const mobile = document.getElementById("executer-mobile");
-      const computer = document.getElementById("executer-computer");
+  function switchSubTab(id) {
+    document.querySelectorAll('.sub-tab-content').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
 
-      if (type === "mobile") {
-        mobile.style.display = "block";
-        computer.style.display = "none";
-      } else {
-        computer.style.display = "block";
-        mobile.style.display = "none";
-      }
-    }
-  </script>
 </body>
 </html>
