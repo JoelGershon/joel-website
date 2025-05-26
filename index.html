@@ -4,136 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luffy Cheats</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      background-color: #0f0f0f;
-      color: white;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+      margin: 0;
       padding: 20px;
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .discord-container {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .discord-link {
-      color: white;
-      font-size: 24px;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .discord-link:hover {
-      color: #7289da;
-    }
-
-    .discord-text {
-      font-size: 14px;
-      color: #ccc;
-    }
-
-    h1 {
+    header {
       text-align: center;
-      color: #00ffe5;
-      flex: 1;
+      margin-bottom: 30px;
     }
 
-    .section {
-      margin-top: 40px;
+    header h1 {
+      color: #00ffcc;
     }
 
-    h2 {
-      color: #00ffc3;
+    .tabs {
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    .script-box {
-      background-color: #1c1c1c;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-      position: relative;
-    }
-
-    .copy-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #00ffc3;
+    .tab-btn {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #333;
+      color: #fff;
       border: none;
-      color: black;
-      padding: 5px 10px;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 5px;
     }
 
-    .copy-btn:hover {
-      background: #00e0b5;
+    .tab-btn:hover {
+      background-color: #555;
     }
 
-    pre {
+    .tab-content {
+      display: none;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: monospace;
       white-space: pre-wrap;
-      word-break: break-all;
+      color: #00ff00;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
+  <header>
     <h1>Luffy Cheats</h1>
-    <div class="discord-container">
-      <span class="discord-text">Join my Discord server for faster bypass</span>
-      <a href="https://discord.gg/kvMwcxRm" target="_blank" class="discord-link" title="Join Discord Server">
-        <i class="fab fa-discord"></i>
-      </a>
-    </div>
+    <p>The ultimate hub for Roblox cheat scripts</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn" onclick="showTab('deadrails')">Dead Rails</button>
+    <button class="tab-btn" onclick="showTab('bloxfruits')">Blox Fruits</button>
   </div>
 
-  <div class="section">
-    <h2>Dead Rails Scripts</h2>
+  <div id="deadrails" class="tab-content active">
+    <h2>Dead Rails Cheat Script</h2>
+    <pre>
+-- Dead Rails Cheat Script
+-- Paste your script below
 
-    <div class="script-box">
-      <strong>Instant Kill Script</strong>
-      <button class="copy-btn" onclick="copyScript(`loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()`)">Copy</button>
-      <pre>loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</pre>
-    </div>
-
-    <div class="script-box">
-      <strong>Keyless & Best Script to Collect Bonds</strong>
-      <button class="copy-btn" onclick="copyScript(`loadstring(game:HttpGet('https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1'))()`)">Copy</button>
-      <pre>loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()</pre>
-    </div>
+print("Dead Rails Cheat Loaded")
+    </pre>
   </div>
 
-  <div class="section">
-    <h2>Blox Fruits Scripts</h2>
+  <div id="bloxfruits" class="tab-content">
+    <h2>Blox Fruits Cheat Script</h2>
+    <pre>
+-- Blox Fruits Cheat Script
+-- Paste your script below
 
-    <div class="script-box">
-      <strong>Best Script (Choose Team + Translator)</strong>
-      <button class="copy-btn" onclick="copyScript(`local Settings = {\n  JoinTeam = 'Pirates';\n  Translator = true;\n}\n\nloadstring(game:HttpGet('https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau'))(Settings)`)">Copy</button>
-      <pre>local Settings = {
-  JoinTeam = "Pirates"; -- Pirates/Marines
-  Translator = true; -- true/false
-}
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)</pre>
-    </div>
+print("Blox Fruits Cheat Loaded")
+    </pre>
   </div>
+
+  <footer>
+    <p>&copy; 2025 Luffy Cheats. All rights reserved.</p>
+  </footer>
 
   <script>
-    function copyScript(script) {
-      navigator.clipboard.writeText(script).then(() => {
-        alert("Script copied!");
-      });
+    function showTab(id) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(c => c.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
   </script>
 
