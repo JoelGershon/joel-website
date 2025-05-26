@@ -40,11 +40,12 @@
       color: #fff;
     }
 
-    /* Main content area */
+    /* Main area */
     .main-content {
       flex: 1;
       padding: 20px;
       overflow-y: auto;
+      position: relative;
     }
 
     .tab-content {
@@ -87,11 +88,24 @@
       margin-bottom: 10px;
       color: #ccc;
     }
+
+    /* Discord Icon */
+    .discord-icon {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    .discord-icon img {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar Navigation -->
+  <!-- Sidebar -->
   <div class="sidebar">
     <button class="active" onclick="showTab('deadrails', this)">🛤️ Dead Rails</button>
     <button onclick="showTab('bloxfruits', this)">🍍 Blox Fruits</button>
@@ -100,6 +114,13 @@
 
   <!-- Main Content -->
   <div class="main-content">
+    <!-- Discord Icon -->
+    <div class="discord-icon">
+      <a href="https://discord.gg/your-server-link" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" />
+      </a>
+    </div>
+
     <!-- Dead Rails Tab -->
     <div id="deadrails" class="tab-content active">
       <h2>🛤️ Dead Rails Scripts</h2>
@@ -174,7 +195,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/L
     </div>
   </div>
 
-  <!-- Tab Logic -->
+  <!-- Tab Switching Script -->
   <script>
     function showTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(tab => {
