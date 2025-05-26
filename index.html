@@ -53,13 +53,32 @@
       background-color: #333;
     }
 
-    /* Sections */
     section {
       padding: 60px 20px;
     }
 
-    h2 {
-      margin-top: 0;
+    .script-box {
+      background: #1e1e1e;
+      border: 1px solid #444;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+
+    .download-buttons a {
+      display: inline-block;
+      margin: 8px 12px 8px 0;
+      padding: 10px 20px;
+      background-color: #0d6efd;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .download-buttons a:hover {
+      background-color: #0b5ed7;
     }
   </style>
 </head>
@@ -75,34 +94,39 @@
     <a href="#executer">Executer</a>
   </div>
 
-  <!-- Content Sections -->
+  <!-- Sections -->
   <section id="deadrails">
-    <h2>🚂 Dead Rails</h2>
-    <p>Put your Dead Rails scripts here.</p>
+    <h2>🚂 Dead Rails Scripts</h2>
+    <div class="script-box">
+      -- Paste your Dead Rails script here
+      print("Dead Rails script loaded")
+    </div>
   </section>
 
   <section id="bloxfruits">
-    <h2>🍍 Blox Fruits</h2>
-    <p>Put your Blox Fruits scripts here.</p>
+    <h2>🍍 Blox Fruits Scripts</h2>
+    <div class="script-box">
+      -- Paste your Blox Fruits script here
+      print("Blox Fruits script activated")
+    </div>
   </section>
 
   <section id="executer">
     <h2>🧠 Ronix Executer</h2>
-    <p>Add your executor info and download/tutorial here.</p>
+    <p>Download Ronix Executer from the links below:</p>
+    <div class="download-buttons">
+      <a href="https://www.mediafire.com/file/your-mediafire-link" target="_blank">Download from MediaFire</a>
+      <a href="https://drive.google.com/file/d/your-google-drive-id/view" target="_blank">Download from Google Drive</a>
+    </div>
+    <p>Need help getting the key? Watch our tutorial video (coming soon).</p>
   </section>
 
-  <!-- Existing Scripts -->
+  <!-- JS for sidebar toggle -->
   <script>
     function toggleMenu() {
       const sidebar = document.getElementById("sidebar");
       sidebar.style.width = (sidebar.style.width === "250px") ? "0" : "250px";
     }
-
-    // Your existing scripts can be included here
-    // For example:
-    // function existingFunction() {
-    //   // Existing functionality
-    // }
   </script>
 
 </body>
