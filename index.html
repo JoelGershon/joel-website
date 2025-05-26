@@ -12,47 +12,36 @@
       color: #fff;
     }
 
-    .menu-icon {
-      font-size: 28px;
+    .tab-bar {
+      display: flex;
+      background-color: #1f1f1f;
+      padding: 10px;
+      justify-content: center;
+    }
+
+    .tab-button {
+      background-color: #1f1f1f;
+      color: #ccc;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
-      padding: 16px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1001;
-      color: white;
-      background-color: #111;
-      border-bottom-right-radius: 8px;
+      margin: 0 10px;
+      border-bottom: 3px solid transparent;
     }
 
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
+    .tab-button.active {
+      color: #fff;
+      border-color: #0d6efd;
     }
 
-    .sidebar a {
-      padding: 12px 24px;
-      text-decoration: none;
-      font-size: 20px;
-      color: white;
+    .tab-content {
+      display: none;
+      padding: 30px 20px;
+    }
+
+    .tab-content.active {
       display: block;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #333;
-    }
-
-    section {
-      padding: 60px 20px;
     }
 
     .script-box {
@@ -75,10 +64,6 @@
       text-decoration: none;
     }
 
-    .download-buttons a:hover {
-      background-color: #0b5ed7;
-    }
-
     .script-title {
       font-size: 18px;
       font-weight: bold;
@@ -95,23 +80,24 @@
 </head>
 <body>
 
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-  <div id="sidebar" class="sidebar">
-    <a href="#deadrails">Dead Rails</a>
-    <a href="#bloxfruits">Blox Fruits</a>
-    <a href="#executer">Executer</a>
+  <!-- Tab Navigation -->
+  <div class="tab-bar">
+    <button class="tab-button active" onclick="showTab('deadrails')">Dead Rails</button>
+    <button class="tab-button" onclick="showTab('bloxfruits')">Blox Fruits</button>
+    <button class="tab-button" onclick="showTab('executer')">Executer</button>
   </div>
 
-  <section id="deadrails">
+  <!-- Dead Rails Section -->
+  <div id="deadrails" class="tab-content active">
     <h2>🚂 Dead Rails Scripts</h2>
     <div class="script-box">
       -- Paste your Dead Rails script here
       print("Dead Rails script loaded")
     </div>
-  </section>
+  </div>
 
-  <section id="bloxfruits">
+  <!-- Blox Fruits Section -->
+  <div id="bloxfruits" class="tab-content">
     <h2>🍍 Blox Fruits Scripts</h2>
 
     <div class="script-box">
@@ -122,8 +108,7 @@
   Translator = true; -- true/false
 }
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
-</code></pre>
+loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)</code></pre>
     </div>
 
     <div class="script-box">
@@ -131,15 +116,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/re
       <div class="script-desc">Best stack farmer and keyless</div>
 <pre><code>getgenv().Team = "Marines"
 getgenv().AutoLoad = false --Will Load Script On Server Hop
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
-</code></pre>
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()</code></pre>
     </div>
 
     <div class="script-box">
       <div class="script-title">🟣 Hoho Hub</div>
       <div class="script-desc">It has everything, but requires key</div>
-<pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
-</code></pre>
+<pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</code></pre>
     </div>
 
     <div class="script-box">
@@ -162,26 +145,33 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc61
     SendWebhookNewItem = true,
     FarmWithHop = true,
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
-</code></pre>
+loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</code></pre>
     </div>
+  </div>
 
-  </section>
-
-  <section id="executer">
+  <!-- Executer Section -->
+  <div id="executer" class="tab-content">
     <h2>🧠 Ronix Executer</h2>
     <p>Download Ronix Executer from the links below:</p>
     <div class="download-buttons">
       <a href="https://www.mediafire.com/file/your-mediafire-link" target="_blank">Download from MediaFire</a>
       <a href="https://drive.google.com/file/d/your-google-drive-id/view" target="_blank">Download from Google Drive</a>
     </div>
-    <p>Need help getting the key? Watch our tutorial video (coming soon).</p>
-  </section>
+    <p>Need help getting the key? Tutorial coming soon!</p>
+  </div>
 
+  <!-- Tab Switching Script -->
   <script>
-    function toggleMenu() {
-      const sidebar = document.getElementById("sidebar");
-      sidebar.style.width = (sidebar.style.width === "250px") ? "0" : "250px";
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(div => {
+        div.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
     }
   </script>
 
