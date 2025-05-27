@@ -4,267 +4,273 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Luffy Cheats</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      box-sizing: border-box;
-    }
-
     body {
-      background: linear-gradient(to right, #1f1c2c, #928dab);
-      color: white;
-      padding-top: 60px;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background: #121212;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      color: #fff;
     }
-
-    .menu-btn, .discord-icon {
-      font-size: 24px;
+    header {
+      background: #1f1f1f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+    }
+    #menuToggle {
+      font-size: 22px;
       cursor: pointer;
     }
-
-    .discord-icon img {
-      width: 28px;
-      height: 28px;
-    }
-
-    .title {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .sidebar {
+    #sidebar {
       position: fixed;
-      top: 60px;
-      left: -250px;
-      width: 250px;
+      left: -200px;
+      top: 0;
+      width: 200px;
       height: 100%;
-      background: #2b2b2b;
-      padding: 20px;
+      background: #222;
       transition: left 0.3s ease;
+      padding-top: 60px;
       z-index: 999;
     }
-
-    .sidebar.open {
+    #sidebar a {
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      color: white;
+      border-bottom: 1px solid #444;
+    }
+    #sidebar.open {
       left: 0;
     }
-
-    .sidebar a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      margin-bottom: 20px;
-      font-weight: 500;
-      transition: color 0.2s;
+    #discordIcon {
+      font-size: 24px;
+      color: #7289da;
     }
-
-    .sidebar a:hover {
-      color: #00ffff;
-    }
-
-    .content {
+    main {
       padding: 20px;
-      max-width: 900px;
-      margin: auto;
     }
-
-    .section {
+    .tab-content {
       display: none;
     }
-
-    .section.active {
+    .tab-content.active {
       display: block;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.5s ease;
     }
-
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
-
     .script-box {
-      background: #202020;
-      padding: 15px;
-      border-radius: 8px;
+      background: #1e1e1e;
+      padding: 10px;
+      border-radius: 6px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      position: relative;
     }
-
     .script-box pre {
       white-space: pre-wrap;
-      word-break: break-word;
-      margin: 10px 0;
-      font-size: 14px;
+      word-wrap: break-word;
     }
-
     .copy-btn {
-      background: #00bcd4;
-      color: black;
+      background: #2c2c2c;
+      color: #fff;
       border: none;
       padding: 6px 12px;
-      border-radius: 4px;
       cursor: pointer;
+      border-radius: 4px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
     }
-
-    .executor-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
+    .executor-tab {
+      margin-top: 20px;
     }
-
-    .executor-tabs button {
-      background: #3e3e3e;
+    .executor-tab button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      background: #2c2c2c;
+      border: none;
       color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
       cursor: pointer;
+      border-radius: 4px;
     }
-
-    .executor-tabs button.active {
-      background: #00bcd4;
+    .executor-tab button.active {
+      background: #444;
     }
-
-    @media (max-width: 600px) {
-      .content {
-        padding: 10px;
-      }
-
-      .script-box pre {
-        font-size: 13px;
-      }
-
-      .executor-tabs {
-        flex-direction: column;
-      }
+    .executor-entry {
+      background: #1e1e1e;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .executor-entry a {
+      color: #00adee;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
-    <div class="title">Luffy Cheats</div>
-    <a href="https://discord.gg/bC9eHm5yEz" class="discord-icon" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord"/>
-    </a>
-  </header>
 
-  <div class="sidebar" id="sidebar">
-    <a href="#" onclick="showSection('deadrails')">Dead Rails</a>
-    <a href="#" onclick="showSection('bloxfruits')">Blox Fruits</a>
-    <a href="#" onclick="showSection('executers')">Executers</a>
+<header>
+  <i id="menuToggle" class="fas fa-bars"></i>
+  <h1>Luffy Cheats</h1>
+  <a href="https://discord.gg/bC9eHm5yEz" target="_blank" id="discordIcon"><i class="fab fa-discord"></i></a>
+</header>
+
+<div id="sidebar">
+  <a href="#" onclick="showTab('deadRails')">Dead Rails</a>
+  <a href="#" onclick="showTab('bloxFruits')">Blox Fruits</a>
+  <a href="#" onclick="showTab('executors')">Executers</a>
+</div>
+
+<main>
+  <div id="deadRails" class="tab-content active">
+    <h2>Dead Rails Scripts</h2>
+    <div class="script-box">
+      <strong>Instant Killer</strong><br>
+      <em>Good with Vampire class. Kills anything with weapons (not guns).</em>
+      <pre>loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</pre>
+      <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+    </div>
+    <div class="script-box">
+      <strong>Auto Collect Bonds</strong><br>
+      <em>Fast bond collection. Keyless.</em>
+      <pre>loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()</pre>
+      <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+    </div>
   </div>
 
-  <div class="content">
-    <div class="section" id="deadrails">
-      <h2>Dead Rails Scripts</h2>
-      <div class="script-box">
-        <strong>Instant Killer</strong><br>
-        <em>Good with vampire class. You can kill anything with weapons (not guns).</em>
-        <pre id="script1">loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</pre>
-        <button class="copy-btn" onclick="copyText('script1')">Copy</button>
-      </div>
-      <div class="script-box">
-        <strong>Auto Collect Bonds</strong><br>
-        <em>Collect bonds fast and keyless.</em>
-        <pre id="script2">loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()</pre>
-        <button class="copy-btn" onclick="copyText('script2')">Copy</button>
-      </div>
-    </div>
-
-    <div class="section" id="bloxfruits">
-      <h2>Blox Fruits Scripts</h2>
-      <div class="script-box">
-        <strong>Redz Hub</strong><br>
-        <em>Best for auto farming and good for low-end devices.</em>
-        <pre id="script3">local Settings = { JoinTeam = "Pirates"; Translator = true; }
+  <div id="bloxFruits" class="tab-content">
+    <h2>Blox Fruits Scripts</h2>
+    <div class="script-box">
+      <strong>Redz Hub</strong><br>
+      <em>Best for auto farming. Runs well on low-end devices.</em>
+<pre>local Settings = {
+  JoinTeam = "Pirates"; -- Pirates/Marines
+  Translator = true;
+}
 loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)</pre>
-        <button class="copy-btn" onclick="copyText('script3')">Copy</button>
-      </div>
-      <div class="script-box">
-        <strong>W Azure</strong><br>
-        <em>Best stack farmer and keyless.</em>
-        <pre id="script4">getgenv().Team = "Marines"
+      <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+    </div>
+    <div class="script-box">
+      <strong>W Azure</strong><br>
+      <em>Best stack farmer. Keyless.</em>
+<pre>getgenv().Team = "Marines"
 getgenv().AutoLoad = false
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()</pre>
-        <button class="copy-btn" onclick="copyText('script4')">Copy</button>
-      </div>
-      <div class="script-box">
-        <strong>Hoho Hub</strong><br>
-        <em>It has everything but requires key.</em>
-        <pre id="script5">loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
-        <button class="copy-btn" onclick="copyText('script5')">Copy</button>
-      </div>
-      <div class="script-box">
-        <strong>Auto Fruit Hopper</strong><br>
-        <em>Get good fruits fast.</em>
-        <pre id="script6">_G.HoHoCustomConfig = { SelectTeam = "Marine", PortalTeleport = true, FarmWithHop = true }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
-        <button class="copy-btn" onclick="copyText('script6')">Copy</button>
-      </div>
+      <button class="copy-btn" onclick="copyScript(this)">Copy</button>
     </div>
-
-    <div class="section" id="executers">
-      <h2>Executers</h2>
-      <div class="executor-tabs">
-        <button onclick="showExecuterTab('mobile')" class="active" id="tab-mobile">Mobile</button>
-        <button onclick="showExecuterTab('pc')" id="tab-pc">Computer</button>
-      </div>
-
-      <div id="mobile" class="executor-tab">
-        <h3>Ronix (Mobile)</h3>
-        <p>The best undetected executor for mobile.</p>
-        <ul>
-          <li><a href="https://www.mediafire.com/file/998l5nycpijgbhm/Ronix+v2.671.818.apk/file" target="_blank">Download Ronix - MediaFire</a></li>
-          <li><a href="https://drive.google.com/file/d/1D_DNg3lyPrQZiy7dt6Xob6U1n9llPrgD/view?usp=drive_link" target="_blank">Download Ronix - Google Drive</a></li>
-        </ul>
-      </div>
-
-      <div id="pc" class="executor-tab" style="display: none;">
-        <p>No PC executors added yet.</p>
-      </div>
+    <div class="script-box">
+      <strong>Hoho Hub</strong><br>
+      <em>Full features but requires a key.</em>
+<pre>loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
+      <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+    </div>
+    <div class="script-box">
+      <strong>Auto Fruit Hopper</strong><br>
+      <em>Fast fruit farming. Portal, ally, noclip, and more.</em>
+<pre>_G.HoHoCustomConfig = {
+  SelectTeam = "Marine",
+  BypassTeleport = false,
+  PortalTeleport = true,
+  LeavePortalUlti = true,
+  FPSBoost = false,
+  WhiteScreen = false,
+  AutoAlly = true,
+  NoClip = true,
+  NoStun = true,
+  AutoCollectFruit = true,
+  AutoRandomFruit = true,
+  CheckFruitStoreable = true,
+  Webhook = "",
+  SendWebhookNewItem = true,
+  FarmWithHop = true,
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
+      <button class="copy-btn" onclick="copyScript(this)">Copy</button>
     </div>
   </div>
 
-  <script>
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("open");
-    }
+  <div id="executors" class="tab-content">
+    <h2>Executers</h2>
+    <div class="executor-tab">
+      <button onclick="showExecutorTab('mobile')" class="active">Mobile</button>
+      <button onclick="showExecutorTab('pc')">PC</button>
+    </div>
+    <div id="mobile" class="executor-tab-content active">
+      <div class="executor-entry">
+        <strong>Ronix Executor</strong><br>
+        <em>The best undetected mobile executor.</em><br>
+        <a href="https://www.mediafire.com/file/998l5nycpijgbhm/Ronix+v2.671.818.apk/file" target="_blank">MediaFire Download</a><br>
+        <a href="https://drive.google.com/file/d/1D_DNg3lyPrQZiy7dt6Xob6U1n9llPrgD/view" target="_blank">Google Drive (Optional)</a>
+      </div>
+    </div>
+    <div id="pc" class="executor-tab-content" style="display:none;">
+      <div class="executor-entry">
+        <strong>Volcano</strong><br>
+        Good injecting and executing, but does not bypass the new anti-cheat. Detectable.<br>
+        Key lasts very short.<br>
+        <a href="https://volcano.best/" target="_blank">Visit Site</a>
+      </div>
+      <div class="executor-entry">
+        <strong>Swift</strong><br>
+        Injection is okay, execution is good. 24-hour key. Detectable.<br>
+        <a href="https://getswift.gg" target="_blank">Visit Site</a>
+      </div>
+      <div class="executor-entry">
+        <strong>Velocity</strong><br>
+        Good injecting, poor execution (crashes). Keyless. Detectable.<br>
+        <a href="https://getvelocity.live/" target="_blank">Visit Site</a>
+      </div>
+      <div class="executor-entry">
+        <strong>Visual</strong><br>
+        Trash executor. Not recommended.<br>
+        <a href="https://getvisual.cc" target="_blank">Visit Site</a>
+      </div>
+    </div>
+  </div>
+</main>
 
-    function showSection(sectionId) {
-      document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(sectionId).classList.add("active");
-      document.getElementById("sidebar").classList.remove("open");
-    }
+<script>
+  const sidebar = document.getElementById('sidebar');
+  document.getElementById('menuToggle').onclick = () => {
+    sidebar.classList.toggle('open');
+  };
 
-    function copyText(id) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => alert("Copied!"));
-    }
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+    sidebar.classList.remove('open');
+  }
 
-    function showExecuterTab(tab) {
-      document.getElementById("mobile").style.display = tab === "mobile" ? "block" : "none";
-      document.getElementById("pc").style.display = tab === "pc" ? "block" : "none";
-      document.getElementById("tab-mobile").classList.toggle("active", tab === "mobile");
-      document.getElementById("tab-pc").classList.toggle("active", tab === "pc");
-    }
+  function showExecutorTab(tab) {
+    document.querySelectorAll('.executor-tab-content').forEach(tab => {
+      tab.style.display = 'none';
+    });
+    document.getElementById(tab).style.display = 'block';
+    document.querySelectorAll('.executor-tab button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
 
-    showSection('deadrails');
-  </script>
+  function copyScript(btn) {
+    const script = btn.previousElementSibling.textContent;
+    navigator.clipboard.writeText(script).then(() => {
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy", 1500);
+    });
+  }
+</script>
+
 </body>
 </html>
