@@ -4,211 +4,295 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Luffy Cheats</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(to right, #111, #222);
       color: #fff;
-      padding-top: 60px;
+      overflow-x: hidden;
     }
 
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #121212;
+      background-color: #1f1f1f;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 15px 20px;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      align-items: center;
+      padding: 1rem;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: slideIn 0.5s ease-in-out;
     }
 
-    .menu-btn {
-      font-size: 24px;
+    .burger {
+      font-size: 1.8rem;
       cursor: pointer;
       background: none;
       border: none;
-      color: #fff;
+      color: white;
+      animation: fadeIn 1s ease-in;
     }
 
     .discord-icon {
-      width: 28px;
-      height: 28px;
-      fill: #7289da;
+      width: 30px;
+      height: 30px;
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
 
     .discord-icon:hover {
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
 
-    nav {
+    #sidebar {
       position: fixed;
-      top: 60px;
-      left: -100%;
+      top: 0;
+      left: -250px;
       width: 200px;
       height: 100%;
-      background: #1c1c1c;
-      padding-top: 20px;
-      transition: left 0.3s ease-in-out;
-      z-index: 999;
+      background: #2c2c2c;
+      padding: 2rem 1rem;
+      transition: left 0.3s ease;
+      z-index: 10;
     }
 
-    nav.active {
+    #sidebar.active {
       left: 0;
     }
 
-    nav ul {
-      list-style: none;
-    }
-
-    nav ul li {
-      padding: 15px 20px;
-      border-bottom: 1px solid #333;
+    .tab-button {
+      display: block;
+      margin: 1rem 0;
+      background: #444;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.3s;
     }
 
-    nav ul li:hover {
-      background: #333;
+    .tab-button:hover {
+      background: #666;
     }
 
-    .section {
+    .content-section {
       display: none;
-      padding: 20px;
-      animation: fadeIn 0.4s ease-in-out;
+      padding: 1rem;
+      animation: fadeIn 0.5s ease;
     }
 
-    .section.active {
+    .content-section.active {
       display: block;
     }
 
     .script-box {
-      background: #181818;
-      border: 1px solid #444;
-      padding: 15px;
-      margin-bottom: 20px;
+      background: #333;
+      margin: 1rem 0;
+      padding: 1rem;
       border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
       position: relative;
     }
 
-    .script-box pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
+    .script-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .script-code {
+      background: #222;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      overflow-x: auto;
     }
 
     .copy-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      padding: 5px 10px;
-      background: #7289da;
+      margin-top: 8px;
+      background: #007bff;
       border: none;
-      color: #fff;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .sub-tab-buttons {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .sub-tab-button {
+      padding: 8px 16px;
+      background: #555;
+      color: white;
+      border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 12px;
+    }
+
+    .sub-tab-button.active {
+      background: #007bff;
+    }
+
+    @keyframes slideIn {
+      from {transform: translateX(-100%);}
+      to {transform: translateX(0);}
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     @media (max-width: 600px) {
-      .logo {
-        font-size: 20px;
-      }
-
-      .copy-btn {
-        font-size: 10px;
-        padding: 4px 8px;
+      .title {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-  <div class="logo">Luffy Cheats</div>
-  <a href="https://discord.gg/bC9eHm5yEz" target="_blank" aria-label="Discord">
-    <svg class="discord-icon" viewBox="0 0 24 24">
-      <path d="M20.317 4.369a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.078.037 13.78 13.78 0 00-.605 1.247 18.274 18.274 0 00-5.475 0 13.877 13.877 0 00-.617-1.247.077.077 0 00-.078-.037 19.736 19.736 0 00-4.885 1.515.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.083.083 0 00.031.056 19.9 19.9 0 006.067 3.093.077.077 0 00.084-.027c.468-.645.885-1.329 1.243-2.05a.077.077 0 00-.041-.105 13.228 13.228 0 01-1.884-.9.077.077 0 01-.008-.129c.127-.096.254-.192.377-.291a.074.074 0 01.077-.01c3.927 1.796 8.18 1.796 12.061 0a.074.074 0 01.078.01c.123.099.25.195.378.291a.077.077 0 01-.006.129c-.6.365-1.228.669-1.885.9a.077.077 0 00-.041.105c.36.72.777 1.403 1.244 2.05a.077.077 0 00.084.027 19.876 19.876 0 006.066-3.093.077.077 0 00.032-.056c.5-5.177-.838-9.673-3.548-13.661a.061.061 0 00-.031-.028zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.175 1.093 2.157 2.418 0 1.334-.955 2.419-2.157 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.175 1.093 2.157 2.418 0 1.334-.947 2.419-2.157 2.419z"/>
-    </svg>
-  </a>
-</header>
+  <header>
+    <button class="burger" onclick="toggleSidebar()">☰</button>
+    <div class="title">Luffy Cheats</div>
+    <a href="https://discord.gg/bC9eHm5yEz" target="_blank">
+      <img class="discord-icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord"/>
+    </a>
+  </header>
 
-<nav id="sidebar">
-  <ul>
-    <li onclick="showSection('deadrails')">Dead Rails</li>
-    <li onclick="showSection('bloxfruits')">Blox Fruits</li>
-    <li onclick="showSection('executers')">Executers</li>
-  </ul>
-</nav>
-
-<!-- Example Sections -->
-<div id="deadrails" class="section active">
-  <h2>Dead Rails</h2>
-  <!-- Example Script Box -->
-  <div class="script-box">
-    <h3>Instant Killer</h3>
-    <p>Good with vampire class. You can kill anything with weapons (not guns).</p>
-    <pre id="script1">loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</pre>
-    <button class="copy-btn" onclick="copyScript('script1')">Copy</button>
+  <div id="sidebar">
+    <button class="tab-button" onclick="showTab('deadrails')">Dead Rails</button>
+    <button class="tab-button" onclick="showTab('bloxfruits')">Blox Fruits</button>
+    <button class="tab-button" onclick="showTab('executers')">Executers</button>
   </div>
-</div>
 
-<div id="bloxfruits" class="section">
-  <h2>Blox Fruits</h2>
-  <!-- Add your Blox Fruits scripts here -->
-</div>
+  <main>
+    <section id="deadrails" class="content-section active">
+      <div class="script-box">
+        <div class="script-title">Instant Killer</div>
+        <div class="description">Good with Vampire class. You can kill anything with weapons, not guns.</div>
+        <div class="script-code" id="script1">loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</div>
+        <button class="copy-btn" onclick="copyText('script1')">Copy</button>
+      </div>
+      <div class="script-box">
+        <div class="script-title">Auto Collect Bonds</div>
+        <div class="description">Collect bonds fast. It is keyless.</div>
+        <div class="script-code" id="script2">loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()</div>
+        <button class="copy-btn" onclick="copyText('script2')">Copy</button>
+      </div>
+    </section>
 
-<div id="executers" class="section">
-  <h2>Executers</h2>
-  <!-- Add Mobile & PC Executors -->
-</div>
+    <section id="bloxfruits" class="content-section">
+      <div class="script-box">
+        <div class="script-title">Redz Hub</div>
+        <div class="description">Best for auto farming and works well on low-end devices.</div>
+        <div class="script-code" id="script3">local Settings = { JoinTeam = "Pirates"; Translator = true; } loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)</div>
+        <button class="copy-btn" onclick="copyText('script3')">Copy</button>
+      </div>
+      <div class="script-box">
+        <div class="script-title">W Azure</div>
+        <div class="description">Best stack farmer and keyless.</div>
+        <div class="script-code" id="script4">getgenv().Team = "Marines" getgenv().AutoLoad = false loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()</div>
+        <button class="copy-btn" onclick="copyText('script4')">Copy</button>
+      </div>
+      <div class="script-box">
+        <div class="script-title">Hoho Hub</div>
+        <div class="description">Has everything but requires key.</div>
+        <div class="script-code" id="script5">loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</div>
+        <button class="copy-btn" onclick="copyText('script5')">Copy</button>
+      </div>
+      <div class="script-box">
+        <div class="script-title">Auto Fruit Hopper</div>
+        <div class="description">Get good fruit fast.</div>
+        <div class="script-code" id="script6">_G.HoHoCustomConfig = { SelectTeam = "Marine", PortalTeleport = true, AutoCollectFruit = true } loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</div>
+        <button class="copy-btn" onclick="copyText('script6')">Copy</button>
+      </div>
+    </section>
 
-<script>
-  function toggleMenu() {
-    document.getElementById('sidebar').classList.toggle('active');
-  }
+    <section id="executers" class="content-section">
+      <div class="sub-tab-buttons">
+        <button class="sub-tab-button active" onclick="showSubTab('mobile')">Mobile</button>
+        <button class="sub-tab-button" onclick="showSubTab('pc')">PC</button>
+      </div>
 
-  function showSection(sectionId) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(sec => sec.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
-    document.getElementById('sidebar').classList.remove('active');
-  }
+      <div id="mobile" class="sub-content active">
+        <div class="script-box">
+          <div class="script-title">Ronix Executor</div>
+          <div class="description">The best undetected executor for Android.</div>
+          <a href="https://www.mediafire.com/file/998l5nycpijgbhm/Ronix+v2.671.818.apk/file" target="_blank">MediaFire Download</a><br/>
+          <a href="https://drive.google.com/file/d/1D_DNg3lyPrQZiy7dt6Xob6U1n9llPrgD/view?usp=drive_link" target="_blank">Google Drive Download</a>
+        </div>
+      </div>
 
-  function copyScript(id) {
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("Script copied to clipboard!");
-    });
-  }
-</script>
+      <div id="pc" class="sub-content" style="display: none;">
+        <div class="script-box">
+          <div class="script-title">Volcano</div>
+          <div class="description">Good injecting & executing. Doesn’t bypass new anti-cheat. Key lasts short time.</div>
+          <a href="https://volcano.best/" target="_blank">Download Volcano</a>
+        </div>
+        <div class="script-box">
+          <div class="script-title">Swift</div>
+          <div class="description">Injection okay, execution good. Detectable. 24-hour key.</div>
+          <a href="https://getswift.gg" target="_blank">Download Swift</a>
+        </div>
+        <div class="script-box">
+          <div class="script-title">Velocity</div>
+          <div class="description">Good injection, poor execution (crashes). Keyless, but detectable.</div>
+          <a href="https://getvelocity.live/" target="_blank">Download Velocity</a>
+        </div>
+        <div class="script-box">
+          <div class="script-title">Visual</div>
+          <div class="description">Trash executor. Not recommended.</div>
+          <a href="https://getvisual.cc/" target="_blank">Download Visual</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function showTab(tabId) {
+      document.querySelectorAll('.content-section').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      document.getElementById('sidebar').classList.remove('active');
+    }
+
+    function showSubTab(subId) {
+      document.querySelectorAll('.sub-content').forEach(tab => tab.style.display = 'none');
+      document.querySelectorAll('.sub-tab-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(subId).style.display = 'block';
+      event.target.classList.add('active');
+    }
+
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => alert("Copied!"));
+    }
+  </script>
 </body>
 </html>
