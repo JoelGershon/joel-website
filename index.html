@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luffy Cheats</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968756.png">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0e0e0e;
+      background: #0f0f0f;
       color: #fff;
     }
 
@@ -22,11 +23,13 @@
       top: 0;
       width: 100%;
       z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
 
     header h1 {
       margin: 0;
       font-size: 24px;
+      animation: fadeInDown 1s ease;
     }
 
     .burger, .discord-icon {
@@ -34,11 +37,17 @@
     }
 
     .burger {
-      font-size: 24px;
+      font-size: 28px;
     }
 
     .discord-icon img {
-      width: 28px;
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+    }
+
+    .discord-icon img:hover {
+      transform: scale(1.1);
     }
 
     .sidebar {
@@ -81,12 +90,15 @@
 
     .tab-content.active {
       display: block;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
     .section-title {
       font-size: 22px;
       margin-top: 20px;
       margin-bottom: 10px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
     }
 
     .script-box {
@@ -103,11 +115,13 @@
       padding: 10px;
       border-radius: 5px;
       overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
 
     .copy-btn {
       position: absolute;
-      top: 10px;
+      bottom: 10px;
       right: 10px;
       background: #00b894;
       color: white;
@@ -144,6 +158,21 @@
         top: unset;
         bottom: 10px;
       }
+
+      .discord-icon {
+        position: absolute;
+        right: 20px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -166,4 +195,113 @@
 </div>
 
 <main>
-  <!-- CONTENT GOES HERE -->
+  <div id="deadrails" class="tab-content active">
+    <div class="section-title">Dead Rails Scripts</div>
+
+    <div class="script-box">
+      <strong>Instant Killer</strong> - Good with vampire class, kills anything with weapons (not guns).
+      <pre id="script1">loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Malee-Instant-kill/refs/heads/main/obf_text_a46b87d4.lua.txt'))()</pre>
+      <button class="copy-btn" onclick="copyScript('script1')">Copy</button>
+    </div>
+
+    <div class="script-box">
+      <strong>Auto Collect Bonds</strong> - Collect bonds fast and it's keyless.
+      <pre id="script2">loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()</pre>
+      <button class="copy-btn" onclick="copyScript('script2')">Copy</button>
+    </div>
+  </div>
+
+  <div id="bloxfruits" class="tab-content">
+    <div class="section-title">Blox Fruits Scripts</div>
+
+    <div class="script-box">
+      <strong>Redz Hub</strong> - Best for auto farming, good on low-end devices.
+      <pre id="b1">local Settings = { JoinTeam = "Pirates"; Translator = true; } loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)</pre>
+      <button class="copy-btn" onclick="copyScript('b1')">Copy</button>
+    </div>
+
+    <div class="script-box">
+      <strong>W Azure</strong> - Best stack farmer, keyless.
+      <pre id="b2">getgenv().Team = "Marines" getgenv().AutoLoad = false loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()</pre>
+      <button class="copy-btn" onclick="copyScript('b2')">Copy</button>
+    </div>
+
+    <div class="script-box">
+      <strong>Hoho Hub</strong> - Has everything, but needs a key.
+      <pre id="b3">loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
+      <button class="copy-btn" onclick="copyScript('b3')">Copy</button>
+    </div>
+
+    <div class="script-box">
+      <strong>Auto Fruit Hopper</strong> - Get good fruit fast.
+      <pre id="b4">_G.HoHoCustomConfig = { SelectTeam = "Marine", PortalTeleport = true, AutoCollectFruit = true, FarmWithHop = true } loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()</pre>
+      <button class="copy-btn" onclick="copyScript('b4')">Copy</button>
+    </div>
+  </div>
+
+  <div id="executers" class="tab-content">
+    <div class="section-title">Executers</div>
+
+    <div class="executers-tabs">
+      <button onclick="showExecuterTab('mobile')" id="btn-mobile" class="active">Mobile</button>
+      <button onclick="showExecuterTab('pc')" id="btn-pc">Computer</button>
+    </div>
+
+    <div id="mobile" class="tab-content active">
+      <div class="script-box">
+        <strong>Ronix Executor</strong> - Best undetected mobile executor
+        <br>
+        <a href="https://www.mediafire.com/file/998l5nycpijgbhm/Ronix+v2.671.818.apk/file" target="_blank">MediaFire Download</a> |
+        <a href="https://drive.google.com/file/d/1D_DNg3lyPrQZiy7dt6Xob6U1n9llPrgD/view?usp=drive_link" target="_blank">Google Drive Download</a>
+      </div>
+    </div>
+
+    <div id="pc" class="tab-content">
+      <div class="script-box">
+        <strong>Volcano</strong> – Good injecting and executing, but detectable. Short key time.
+        <br><a href="https://volcano.best/" target="_blank">Visit Website</a>
+      </div>
+      <div class="script-box">
+        <strong>Swift</strong> – Injection okay, execution good. Detectable. 24-hour key.
+        <br><a href="https://getswift.gg" target="_blank">Visit Website</a>
+      </div>
+      <div class="script-box">
+        <strong>Velocity</strong> – Good injecting, poor execution. Keyless, detectable.
+        <br><a href="https://getvelocity.live/" target="_blank">Visit Website</a>
+      </div>
+      <div class="script-box">
+        <strong>Visual</strong> – Trash executor.
+        <br><a href="https://getvisual.cc/" target="_blank">Visit Website</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+  }
+
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('sidebar').classList.remove('active');
+  }
+
+  function showExecuterTab(id) {
+    document.querySelectorAll('#executers .tab-content').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('btn-mobile').classList.remove('active');
+    document.getElementById('btn-pc').classList.remove('active');
+    document.getElementById('btn-' + id).classList.add('active');
+  }
+
+  function copyScript(id) {
+    const script = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(script);
+    alert('Script copied to clipboard!');
+  }
+</script>
+
+</body>
+</html>
